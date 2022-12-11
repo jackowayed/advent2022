@@ -21,7 +21,18 @@ async function partOne() {
 }
 partOne().then(console.log);
 
+function isDisjoint(startA: number, endA: number, startB: number, endB: number) {
+  return endA < startB || endB < startA;
+}
+
+function scoreLineP2(line: string) {
+  const l = parseLine(line);
+  //console.log(l);
+  return +(!isDisjoint(l[0], l[1], l[2], l[3]));
+}
+
 async function partTwo() {
   const lines = await readFile();
+  return lines.map(scoreLineP2).reduce((a, b) => a + b);
 }
 partTwo().then(console.log);
