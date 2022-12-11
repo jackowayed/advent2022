@@ -32,7 +32,26 @@ async function partOne() {
 }
 partOne().then(console.log);
 
+function intersectGroup(lineOne: string, lineTwo: string, lineThree: string) {
+  const one = new Set(lineOne);
+  const two = new Set(lineTwo);
+  const three = new Set(lineThree);
+  const intersection = [...one].filter(element => two.has(element) && three.has(element));
+  console.assert(intersection.length === 1, intersection.toString());
+  return intersection[0];
+}
+
+function scoreGroup(lineOne: string, lineTwo: string, lineThree: string) {
+  return scoreItem(intersectGroup(lineOne, lineTwo, lineThree));
+}
+
 async function partTwo() {
   const lines = await readFile();
+  let score = 0;
+  for (let i = 0; i < lines.length; i += 3) {
+    score += scoreGroup(lines[i], lines[i + 1], lines[i + 2]);
+  }
+  return score;
 }
 partTwo().then(console.log);
+
