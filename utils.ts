@@ -2,7 +2,7 @@ const readline = require("readline");
 const fs = require("fs");
 const path = require("path");
 
-export const readFile = async (fileName = "./files/input.txt") => {
+export const readFile = async (fileName = "./input.txt") => {
   const lines: string[] = [];
   const instream = fs.createReadStream(path.resolve(process.cwd(), fileName));
   const rl = readline.createInterface({ input: instream });
@@ -14,4 +14,4 @@ export const readFile = async (fileName = "./files/input.txt") => {
   return lines;
 };
 
-export const readTestFile = async () => await readFile("./files/test.txt");
+export const readTestFile = async () => await readFile("./test.txt");
