@@ -1,8 +1,6 @@
 const readline = require("readline");
 const fs = require("fs");
 const path = require("path");
-const chalk = require("chalk");
-const boxen = require("boxen");
 
 export const readFile = async (fileName = "./files/input.txt") => {
   const lines: string[] = [];
