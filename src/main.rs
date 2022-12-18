@@ -1,6 +1,6 @@
-mod five;
+mod six;
 
 fn main() {
-    println!("{}", five::part_one());
-    println!("{}", five::part_two());
+    println!("{}", six::part_one());
+    println!("{}", six::part_two());
 }
